@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root 'topics#index'
+
   get 'topics/index'
   get 'topics/show/:id' => 'topics#show', as: :topics_show
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -8,4 +11,8 @@ Rails.application.routes.draw do
 
   #Writing Thread
   post 'posts/create' => 'post#create', as: :post_create
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end
