@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   #Writing Thread
   post 'posts/create' => 'post#create', as: :post_create
 
+  #User Edit
+  #get 'users/edit' => 'users#edit', as: :users_
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
