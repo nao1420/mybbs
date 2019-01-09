@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'topics#index'
+  #root 'topics#index'
+
+  get '/:locale' => "topics#index", as: :root
+  get '/' => redirect("/ja")
 
   get 'topics/index'
   get 'topics/show/:id' => 'topics#show', as: :topics_show
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   post 'topics/create' => 'topics#create'
 
   delete 'topics/delete/:id' => 'topics#delete', as: :topic_delete

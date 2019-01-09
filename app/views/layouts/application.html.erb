@@ -14,11 +14,12 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
-
+  
   <% if user_signed_in? %>
-  <p>ようこそ <%=current_user.username%> さん</p>
-  <p><%= link_to "ユーザ情報の編集", edit_user_registration_path %></p>
-  <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+  <!--p>ようこそ <-%=current_user.username%> さん</p-->
+  <p><%= t('welcom', username:current_user.username)%></p>
+  <p><%= link_to t('user_edit'), edit_user_registration_path %></p>
+  <p><%= link_to t('logout'), destroy_user_session_path, method: :delete %></p>
   <% end %>
 
 </html>
