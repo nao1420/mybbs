@@ -1,16 +1,19 @@
 <h1><%= @topic.title %></h1>
 <% @posts.each_with_index do |post , idx| %>
   <p>
-    <%= idx + 1 %>. <%= post.name %> : <%= post.body %>
+    <%= idx + 1 %>. <%= post.name %> [<%=post.user_id %>] : <%= post.body %>
   </p>
 <% end %>
 
 <h3>新規書き込み</h3>
 <%= form_for @newpost, :url => post_create_path do |f| %>
   <p>お名前</p>
-  <p><%= f.text_field :name %></p>
-  <p>本文</p>
+  <p><%=current_user.username%></p><!--%= f.text_field :name %-->
+    <p>本文</p>
   <p><%= f.text_area :body %></p>
   <%= f.hidden_field :topic_id %>
+  <%= f.hidden_field :name, :value => current_user.username %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.submit %>
+  <!--%= link_to '戻る', :back %-->
 <% end %>
