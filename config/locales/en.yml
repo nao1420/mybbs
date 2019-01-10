@@ -6,6 +6,7 @@ en:
   edit: edit
   destroy: destroy
   back: back
+  goto_topic: to topic page
   welcom: "Welcom! %{username}"
   logout: logout
   user_edit: edit user infomation

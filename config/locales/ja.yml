@@ -6,6 +6,7 @@ ja:
   edit: 編集
   destroy: 削除
   back: 戻る
+  goto_topic: トピックページへ
   welcom: "ようこそ！ %{username}さん"
   logout: ログアウト
   user_edit: ユーザー情報の編集

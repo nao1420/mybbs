@@ -16,6 +16,12 @@ module Mybbs
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    # 有効にする言語のホワイトリスト
+    config.i18n.available_locales = %i(ja en)
+
+    # ホワイトリストをチェックするかどうか
+    config.i18n.enforce_available_locales = true
+
     config.i18n.default_locale = :ja
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]

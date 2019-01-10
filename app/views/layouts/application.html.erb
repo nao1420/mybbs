@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html>
+
+  <p><%= link_to('日本語', :locale => 'ja') %> | <%= link_to('English', :locale => 'en') %></p>
+  <% if user_signed_in? %>
+  <p><%= t('welcom', username:current_user.username)%></p>
+  <% if I18n.locale.to_s == "en" %>
+    <p><%= link_to t('goto_topic'), '/en/topics/index' %></p>
+  <% else %>
+    <p><%= link_to t('goto_topic'), '/ja/topics/index' %></p>
+  <% end %>
+  <% end %>
+
   <head>
     <title>Mybbs</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,12 +26,12 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
-  
+
   <% if user_signed_in? %>
-  <!--p>ようこそ <-%=current_user.username%> さん</p-->
-  <p><%= t('welcom', username:current_user.username)%></p>
   <p><%= link_to t('user_edit'), edit_user_registration_path %></p>
   <p><%= link_to t('logout'), destroy_user_session_path, method: :delete %></p>
+
+
   <% end %>
 
 </html>

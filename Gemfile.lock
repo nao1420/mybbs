@@ -84,6 +84,7 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.7.0)
       devise (>= 4.5)
+    devise-i18n-views (0.3.7)
     duktape (2.0.1.0)
     erubi (1.8.0)
     execjs (2.7.0)
@@ -227,6 +228,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   devise-i18n
+  devise-i18n-views
   duktape
   jbuilder (~> 2.5)
   letter_opener_web

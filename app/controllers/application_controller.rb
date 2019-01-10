@@ -15,12 +15,19 @@ class ApplicationController < ActionController::Base
     #devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
 
+  #protected
+  #def permitted_params
+#    params.permit(:options)
+#  end
+
   protect_from_forgery
 
   before_action :set_locale
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
+
+  def
 
   # トップレベルドメインからロケールを取得する、なければ+nil+を返す
 # この動作をローカルPCで行なうためには、
@@ -36,4 +43,5 @@ class ApplicationController < ActionController::Base
   def default_url_options(options = {})
     { locale: I18n.locale }.merge options
   end
+
 end
