@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'topics#index'
-  #root 'users#sign_in'
 
-  #get '/:locale' => "topics#index", as: :root
-  #get '/' => redirect("/ja")
   scope '(:locale)', locale: /#{I18n.available_locales.map(&:to_s).join('|')}/ do
 
-    resource :users
+    root 'topics#index'
+
+    devise_for :users
+    #resources :users
+
+    get 'users/index'
+    get 'users/show/:id' => 'users#show', as: :users_show
+
     get 'topics/index'
     get 'topics/show/:id' => 'topics#show', as: :topics_show
       # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

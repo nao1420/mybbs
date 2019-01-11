@@ -6,6 +6,9 @@ ja:
   edit: 編集
   destroy: 削除
   back: 戻る
+  my_page: "%{username}のページ"
+  topics: トピック
+  posts: 投稿
   goto_topic: トピックページへ
   welcom: "ようこそ！ %{username}さん"
   logout: ログアウト

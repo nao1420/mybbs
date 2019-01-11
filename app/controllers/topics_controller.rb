@@ -5,7 +5,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(params[:topic].permit(:title))
+    @topic = Topic.new(params[:topic].permit(:title,:user_id))
     @topic.save
     redirect_to topics_index_path
   end

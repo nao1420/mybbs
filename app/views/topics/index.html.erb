@@ -3,7 +3,6 @@
 <ul>
   <% @topics.each do |topic| %>
     <li><%= link_to topic.title, topics_show_path(topic.id) %>
-      <%= link_to t('destroy'), topic_delete_path(topic.id), method: :delete, data: {confirm: t('destroy_check')} %>
 </li>
   <% end %>
 </ul>
@@ -11,5 +10,6 @@
 <h1><%= t('new_topic')%></h1>
 <%= form_for @newTopic, :url => {:action => 'create'} do |f| %>
   <%= f.text_field :title %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.submit %>
 <% end %>

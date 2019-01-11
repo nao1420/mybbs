@@ -6,6 +6,9 @@ en:
   edit: edit
   destroy: destroy
   back: back
+  my_page: "%{username}'s Page"
+  topics: Topics
+  posts: Posts
   goto_topic: to topic page
   welcom: "Welcom! %{username}"
   logout: logout

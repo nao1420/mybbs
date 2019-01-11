@@ -28,10 +28,13 @@
   </body>
 
   <% if user_signed_in? %>
+  <% if I18n.locale.to_s == "en" %>
+    <p><%= link_to "my page", "http://localhost:3000/en/users/show/"+current_user.id.to_s,method: :get%></p>
+  <% else %>
+    <p><%= link_to "マイページ", "http://localhost:3000/ja/users/show/"+current_user.id.to_s,method: :get%></p>
+  <% end %>
   <p><%= link_to t('user_edit'), edit_user_registration_path %></p>
   <p><%= link_to t('logout'), destroy_user_session_path, method: :delete %></p>
-
-
   <% end %>
 
 </html>

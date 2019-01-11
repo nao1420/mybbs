@@ -1,0 +1,16 @@
+<% provide(:title, @user.username) %>
+<h1><%= t('my_page', username:current_user.username)%></h1>
+<h2><%= t('topics')%></h2>
+<% @topics.each do |topic| %>
+  <li>
+    <%=  topic.title %>
+  </li>
+<% end %>
+
+<h2><%= t('posts')%></h2>
+
+<% @posts.each do |post| %>
+  <li>
+    <%=  post.topic_id %> | <%= post.body %>
+  </li>
+<% end %>
