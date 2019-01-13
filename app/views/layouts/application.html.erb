@@ -1,15 +1,6 @@
+
 <!DOCTYPE html>
 <html>
-
-  <p><%= link_to('日本語', :locale => 'ja') %> | <%= link_to('English', :locale => 'en') %></p>
-  <% if user_signed_in? %>
-  <p><%= t('welcom', username:current_user.username)%></p>
-  <% if I18n.locale.to_s == "en" %>
-    <p><%= link_to t('goto_topic'), '/en/topics/index' %></p>
-  <% else %>
-    <p><%= link_to t('goto_topic'), '/ja/topics/index' %></p>
-  <% end %>
-  <% end %>
 
   <head>
     <title>Mybbs</title>
@@ -24,17 +15,33 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    
+    <div class="container">
+    <p><%= link_to('日本語', :locale => 'ja') %> | <%= link_to('English', :locale => 'en') %></p>
+    <% if user_signed_in? %>
+    <p><%= t('welcom', username:current_user.username)%></p>
+    <% if I18n.locale.to_s == "en" %>
+      <p><%= link_to t('goto_topic'), '/en/topics/index' %></p>
+    <% else %>
+      <p><%= link_to t('goto_topic'), '/ja/topics/index' %></p>
+    <% end %>
+    <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 
-  <% if user_signed_in? %>
-  <% if I18n.locale.to_s == "en" %>
-    <p><%= link_to "my page", "http://localhost:3000/en/users/show/"+current_user.id.to_s,method: :get%></p>
-  <% else %>
-    <p><%= link_to "マイページ", "http://localhost:3000/ja/users/show/"+current_user.id.to_s,method: :get%></p>
-  <% end %>
-  <p><%= link_to t('user_edit'), edit_user_registration_path %></p>
-  <p><%= link_to t('logout'), destroy_user_session_path, method: :delete %></p>
-  <% end %>
+  <div class="container">
+    <br/>
+    <% if user_signed_in? %>
+    <% if I18n.locale.to_s == "en" %>
+      <p><%= link_to "my page", "http://localhost:3000/en/users/show/"+current_user.id.to_s,method: :get%></p>
+    <% else %>
+      <p><%= link_to "マイページ", "http://localhost:3000/ja/users/show/"+current_user.id.to_s,method: :get%></p>
+    <% end %>
+    <p><%= link_to t('user_edit'), edit_user_registration_path %></p>
+    <p><%= link_to t('logout'), destroy_user_session_path, method: :delete %></p>
+    <% end %>
+  </div>
 
 </html>
