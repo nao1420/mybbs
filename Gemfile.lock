@@ -133,6 +133,7 @@ GEM
     rack (2.0.6)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    railroady (1.5.3)
     rails (5.2.2)
       actioncable (= 5.2.2)
       actionmailer (= 5.2.2)
@@ -239,6 +240,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   letter_opener_web
   puma (~> 3.11)
+  railroady
   rails (~> 5.2.2)
   rails-erd
   rails-i18n (~> 5.1)
